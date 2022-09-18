@@ -11,4 +11,6 @@ import java.util.List;
 public interface PasswordRepository extends JpaRepository<Password, Integer> {
 
     List<Password> getPasswordsByOwner(User user);
+    Password getPasswordByOwnerAndName(User user, String passName);
+    void deletePasswordByOwnerAndName(User user, String passName);
 }

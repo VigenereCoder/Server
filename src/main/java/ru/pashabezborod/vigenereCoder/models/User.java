@@ -7,6 +7,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 
 @Entity
@@ -28,8 +29,15 @@ public class User {
     @Column(name = "password")
     private Long password;
 
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.PERSIST)
+    private List<Password> passwordList;
+
     public void setPassword(String password) {
         this.password = (long) password.hashCode() * password.length() * 31L;
+    }
+
+    public void setPassword(Long password) {
+        this.password = password;
     }
 
 }

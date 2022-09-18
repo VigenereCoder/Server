@@ -1,8 +1,6 @@
 package ru.pashabezborod.vigenereCoder.models;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
@@ -37,5 +35,4 @@ public class Password {
 
     @Column(name = "hash")
     private long hash;
-
 }
